@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --brand-dark: #0a0a0a;
+    --brand-dark-secondary: #121212;
+    --brand-light: #e0e0e0;
+    --brand-accent: #00BFFF; /* DeepSkyBlue - for an electric/neon feel */
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-body: 'Lora', serif;
+}
+
+body {
+    background-color: var(--brand-dark);
+    color: var(--brand-light);
+    font-family: var(--font-body);
+}
+
+.font-heading {
+    font-family: var(--font-heading);
+}
+
+.font-body {
+    font-family: var(--font-body);
+}
+
+.bg-brand-dark {
+    background-color: var(--brand-dark);
+}
+
+.bg-brand-dark-secondary {
+    background-color: var(--brand-dark-secondary);
+}
+
+.text-brand-light {
+    color: var(--brand-light);
+}
+
+.text-brand-accent {
+    color: var(--brand-accent);
+}
+
+#main-header {
+    background: transparent;
+}
+
+#main-header.scrolled {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: 0.2em;
+    color: white;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--brand-accent);
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 4rem;
+    }
+}
+
+
+/* Character Card */
+.character-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 191, 255, 0.1);
+}
+
+.character-card img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* Tables */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--brand-dark-secondary);
+}
+
+.custom-table th, .custom-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-table th {
+    font-family: var(--font-heading);
+    color: var(--brand-accent);
+    letter-spacing: 0.1em;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.custom-table td {
+    font-size: 0.95rem;
+    color: var(--brand-light);
+    vertical-align: top;
+}
+
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Episode Accordion */
+.episode-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--brand-dark-secondary);
+    transition: background-color 0.3s ease;
+}
+
+.episode-item.open {
+    background-color: #1a1a1a;
+}
+
+.episode-header {
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.episode-header h4 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.1em;
+    font-size: 1.5rem;
+    color: white;
+}
+.episode-header h4 span {
+    color: var(--brand-accent);
+    margin-right: 1rem;
+}
+
+.episode-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 1.5rem;
+}
+
+.episode-content .logline {
+    font-style: italic;
+    color: var(--brand-light);
+    border-left: 3px solid var(--brand-accent);
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.episode-header .icon-toggle {
+    transition: transform 0.3s ease;
+}
+
+.episode-item.open .episode-header .icon-toggle {
+    transform: rotate(180deg);
+}
+
+/* Visuals Section */
+.visual-item img {
+    transition: transform 0.3s ease;
+}
+.visual-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Infographics Section */
+.infographic-card {
+    background-color: var(--brand-dark-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Timeline Section */
+#timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 50px auto;
+}
+#timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--brand-accent);
+    opacity: 0.3;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+.timeline-item-wrapper {
+    position: relative;
+}
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+}
+.timeline-item.left {
+    left: 0;
+}
+.timeline-item.right {
+    left: 50%;
+}
+.timeline-dot {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: var(--brand-dark);
+    border: 4px solid var(--brand-accent);
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.right .timeline-dot {
+    left: -10px;
+}
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--brand-dark-secondary);
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.left .timeline-content {
+    text-align: right;
+}
+.timeline-header {
+    font-family: var(--font-heading);
+    color: var(--brand-accent);
+    letter-spacing: 0.1em;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.timeline-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: white;
+    letter-spacing: 0.05em;
+}
+.timeline-content p {
+    font-size: 0.9rem;
+    color: var(--brand-light);
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+    #timeline-container::after {
+        left: 20px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    .timeline-item.left, .timeline-item.right {
+        left: 0%;
+    }
+    .timeline-dot, .right .timeline-dot {
+        left: 11px;
+    }
+    .left .timeline-content {
+       text-align: left;
+    }
+}
+
+
+/* Animations */
+.anim-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
